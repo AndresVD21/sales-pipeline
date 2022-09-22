@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/sales-pipeline/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/sales-pipeline",
+        "index": "apps/sales-pipeline/src/index.html",
+        "baseHref": "/",
+        "main": "apps/sales-pipeline/src/main.tsx",
+        "polyfills": "apps/sales-pipeline/src/polyfills.ts",
+        "tsConfig": "apps/sales-pipeline/tsconfig.app.json",
+        "assets": [
+          "apps/sales-pipeline/src/favicon.ico",
+          "apps/sales-pipeline/src/assets"
+        ],
+        "styles": ["apps/sales-pipeline/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/sales-pipeline/src/environments/environment.ts",
+              "with": "apps/sales-pipeline/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "sales-pipeline:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "sales-pipeline:build:development"
+        },
+        "production": {
+          "buildTarget": "sales-pipeline:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/sales-pipeline/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/sales-pipeline"],
+      "options": {
+        "jestConfig": "apps/sales-pipeline/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
