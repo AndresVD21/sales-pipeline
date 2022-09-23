@@ -1,0 +1,51 @@
+@use '../../../../styles/src/lib/typography';
+@use '../../../../styles/src/lib/variables';
+@use '../../../../styles/src/lib/mixins/container.scss' as mixin-container;
+@use '../../../../styles/src/lib/mixins/button.scss' as mixin-button;
+
+@include mixin-container.container;
+.convert-container {
+  align-self: flex-start;
+  &__title {
+    text-transform: uppercase;
+  }
+
+  &__info {
+    line-height: 1.5;
+    margin: 1em 0;
+    font-size: 1.1rem;
+  }
+
+  .search-lead {
+    margin: 1em 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+
+    &__input {
+      border: none;
+      padding: 1em 1.5em;
+      border: 2px solid variables.$teal;
+      background-color: variables.$white;
+      border-radius: 5px;
+      width: 100%;
+      font-weight: 700;
+
+      &:focus,
+      &:active {
+        border: 2px solid variables.$teal;
+      }
+    }
+    &__button {
+      @include mixin-button.button(variables.$teal, variables.$white);
+      width: 100%;
+    }
+  }
+  .process-convert__button {
+    @include mixin-button.button(variables.$teal, variables.$white);
+    margin: 1em 0;
+    width: 100%;
+  }
+}
+
+@include mixin-container.container-lg;

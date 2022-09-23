@@ -1,0 +1,14 @@
+.lead {
+  padding: 1em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+
+  &__name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  &__not-found {
+    padding: 1em;
+  }
+}
