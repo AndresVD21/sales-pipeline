@@ -24,7 +24,8 @@
         "libs/sales-pipeline/feature-home/src/index.ts"
       ],
       "@sales-pipeline/shared": ["libs/shared/src/index.ts"],
-      "@sales-pipeline/styles": ["libs/styles/src/index.ts"]
+      "@sales-pipeline/styles": ["libs/styles/src/index.ts"],
+      "@sales-pipeline/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
