@@ -1,0 +1,23 @@
+@mixin button($color-primary, $color-secondary) {
+  border: 2px solid $color-primary;
+  color: $color-primary;
+  padding: 1em 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+  background-color: transparent;
+
+  &.fill {
+    background-color: $color-primary;
+    color: $color-secondary;
+  }
+
+  &:hover {
+    border-color: $color-primary;
+    background-color: $color-secondary;
+    color: $color-primary;
+  }
+}
