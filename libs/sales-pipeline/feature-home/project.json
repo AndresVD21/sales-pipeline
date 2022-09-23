@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/sales-pipeline/feature-home/src",
+  "projectType": "library",
+  "tags": ["domain:pipeline"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/sales-pipeline/feature-home/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/sales-pipeline/feature-home"],
+      "options": {
+        "jestConfig": "libs/sales-pipeline/feature-home/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
