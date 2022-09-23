@@ -2,7 +2,13 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "data": "libs/data",
+    "data-access": "libs/data-access",
     "sales-pipeline": "apps/sales-pipeline",
-    "sales-pipeline-e2e": "apps/sales-pipeline-e2e"
+    "sales-pipeline-e2e": "apps/sales-pipeline-e2e",
+    "sales-pipeline-feature-convert": "libs/sales-pipeline/feature-convert",
+    "sales-pipeline-feature-home": "libs/sales-pipeline/feature-home",
+    "shared": "libs/shared",
+    "styles": "libs/styles"
   }
 }
