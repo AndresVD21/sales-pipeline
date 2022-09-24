@@ -1,3 +1,26 @@
-export function utils(): string {
-  return 'utils';
-}
+import { Lead, Registry } from '@sales-pipeline/data';
+
+/**
+ *
+ * @param leadFoundInRegistry Lead found in the DB
+ * @param leadEntered Lead you want to process
+ * @returns true if they are equals false when there is any discrepancy
+ */
+export const compareLeads = (
+  leadFoundInRegistry: Registry,
+  leadEntered: Lead
+) => {
+  for (const propery in leadFoundInRegistry) {
+    if (
+      leadFoundInRegistry[propery as keyof Lead] !==
+      leadEntered[propery as keyof Lead]
+    ) {
+      return false;
+    }
+  }
+  return true;
+};
+
+export const getRandom = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};

@@ -20,11 +20,16 @@
                 "sourceTag": "domain:pipeline",
                 "onlyDependOnLibsWithTags": [
                   "domain:data",
-                  "domain:data-access"
+                  "domain:data-access",
+                  "domain:utils"
                 ]
               },
               {
                 "sourceTag": "domain:data-access",
+                "onlyDependOnLibsWithTags": ["domain:data"]
+              },
+              {
+                "sourceTag": "domain:utils",
                 "onlyDependOnLibsWithTags": ["domain:data"]
               }
             ]
