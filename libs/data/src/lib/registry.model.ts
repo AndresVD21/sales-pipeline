@@ -1,4 +1,4 @@
-export class Lead {
+export class Registry {
   id: string;
   firstName: string;
   lastName: string;
