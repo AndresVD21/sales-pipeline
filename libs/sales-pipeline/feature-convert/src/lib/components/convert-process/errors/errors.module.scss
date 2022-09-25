@@ -1,0 +1,14 @@
+@use '../../../../../../../styles/src/lib/variables';
+
+.errors {
+  padding: 1em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  background-color: rgba(variables.$greyish-blue, 0.8);
+  color: variables.$white;
+
+  &__text {
+    margin-bottom: 1em;
+    text-align: center;
+  }
+}
