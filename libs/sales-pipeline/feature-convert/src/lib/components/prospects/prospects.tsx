@@ -4,19 +4,24 @@ import { Emoji, Space } from '@sales-pipeline/shared';
 
 /* eslint-disable-next-line */
 export interface ProspectProps {
-  lead: Lead | undefined;
+  lead: Lead | null;
+  hasLeadSelected: boolean;
 }
 
-const Prospect: React.FC<ProspectProps> = ({ lead }) => {
+const Prospect: React.FC<ProspectProps> = ({ lead, hasLeadSelected }) => {
   const getBirthdayString = () => {
-    const day = `${lead?.birthdate.getDate()}`;
+    const transformDate =
+      lead && lead.birthdate ? new Date(lead.birthdate) : null;
+    const day = `${transformDate?.getDate()}`;
     const month =
-      lead?.birthdate.toLocaleString('default', { month: 'short' }) || '';
-    const year = `${lead?.birthdate.getFullYear()}`;
+      transformDate?.toLocaleString('default', { month: 'short' }) || '';
+    const year = `${transformDate?.getFullYear()}`;
     return `${day}/${month}/${year}`;
   };
 
-  return lead ? (
+  return !hasLeadSelected ? (
+    <div className="lead__empty">Search for a lead!</div>
+  ) : hasLeadSelected && lead ? (
     <div className="lead">
       <p className="lead__name">
         <span className="lead__firstname">{lead.firstName}</span>
@@ -24,10 +29,10 @@ const Prospect: React.FC<ProspectProps> = ({ lead }) => {
         <span className="lead__lastname">{lead.lastName}</span>
       </p>
       <p className="lead__email">
-        <Emoji emoji="📧" /> {lead.email}
+        <Emoji emoji="📧" label="mail" /> {lead.email}
       </p>
       <p className="lead__birthday">
-        <Emoji emoji="🎂" /> {getBirthdayString()}
+        <Emoji emoji="🎂" label="birthday" /> {getBirthdayString()}
       </p>
     </div>
   ) : (
