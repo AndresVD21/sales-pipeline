@@ -1,13 +1,14 @@
+@use '../queries';
+@use '../variables';
+
 @mixin button($color-primary, $color-secondary) {
   border: 2px solid $color-primary;
   color: $color-primary;
   padding: 1em 1.5em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  text-transform: capitalize;
   border-radius: 5px;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 100;
   background-color: transparent;
 
   &.fill {
@@ -19,5 +20,24 @@
     border-color: $color-primary;
     background-color: $color-secondary;
     color: $color-primary;
+    font-weight: 400;
+
+    &:disabled {
+      color: $color-secondary;
+      font-weight: 100;
+    }
+  }
+
+  &:disabled {
+    background-color: variables.$light-grey;
+    border-color: variables.$light-grey;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-lg {
+  @include queries.screen(lg) {
+    font-size: 1.2rem;
+    padding: 0.5em 1em;
   }
 }
