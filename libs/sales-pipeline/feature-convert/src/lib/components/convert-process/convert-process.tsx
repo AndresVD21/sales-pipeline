@@ -30,7 +30,10 @@ export const ConvertProcess: React.FC<ConvertProcessProps> = ({
         systemsErrors={score.systemsErrors}
       />
     ) : hasScore ? (
-      <Score score={score.score} />
+      <>
+        <Score score={score.score} />
+        <Loading />
+      </>
     ) : (
       <div>The selected lead does not have a previous score</div>
     )

@@ -3,8 +3,7 @@
 @use '../../../../styles/src/lib/mixins/container.scss' as mixin-container;
 @use '../../../../styles/src/lib/mixins/button.scss' as mixin-button;
 
-@include mixin-container.container;
-.convert-container {
+@include mixin-container.container {
   align-self: flex-start;
   &__title {
     text-transform: uppercase;
@@ -48,4 +47,5 @@
   }
 }
 
-@include mixin-container.container-lg;
+@include mixin-container.container-lg {
+}

@@ -1,19 +1,19 @@
 import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './loading.scss';
+import styles from './loading.module.scss';
 /* eslint-disable-next-line */
 export interface LoadingProps {}
 
 export function Loading(props: LoadingProps) {
   return (
-    <div className="loading__container">
+    <div className={styles['loading__container']}>
       <FontAwesomeIcon
-        className="loading__icon"
+        className={styles['loading__icon']}
         icon={faSync}
         spin={true}
         size="4x"
       />
-      <p className="loading__text">The score is being processed</p>
+      <p className={styles['loading__text']}>The score is being processed</p>
     </div>
   );
 }

@@ -3,11 +3,8 @@
 @use '../../../../styles/src/lib/mixins/container.scss' as mixin-container;
 @use '../../../../styles/src/lib/mixins/button.scss' as mixin-button;
 
-.home-container {
-  align-self: center;
-}
-
 @include mixin-container.container {
+  align-self: center;
   &__title {
     text-transform: uppercase;
     margin-bottom: 2em;

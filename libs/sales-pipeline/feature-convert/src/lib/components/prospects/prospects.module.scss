@@ -8,7 +8,8 @@
     font-weight: 700;
     text-transform: uppercase;
   }
-  &__not-found {
+  &__not-found,
+  &__empty {
     padding: 1em;
   }
 }

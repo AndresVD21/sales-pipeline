@@ -1,5 +1,4 @@
 import { Error } from '@sales-pipeline/data';
-import { map } from 'rxjs';
 import ErrorItem from './error-item/error-item';
 import styles from './errors.module.scss';
 
