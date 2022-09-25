@@ -17,23 +17,24 @@ export const getLead = (id: string) => {
 };
 
 export const getSatisfactoryScore = (
-  isInNationalRegistry: boolean,
+  matchNationalRegistry: boolean,
   hasJudicialRecord: boolean
 ) => {
   console.log(
-    `[Get Satisfactory Score] is in national ${isInNationalRegistry}, has judicial ${hasJudicialRecord}`
+    `[Get Satisfactory Score] is in national ${matchNationalRegistry}, has judicial ${hasJudicialRecord}`
   );
   const response: SatisfactoryScore = {
     score: 0,
     systemsErrors: [],
   };
-  if (isInNationalRegistry && !hasJudicialRecord) {
+  if (matchNationalRegistry && !hasJudicialRecord) {
     response.score = getRandom(0, 100);
     return response;
   }
-  if (!isInNationalRegistry) {
+  if (!matchNationalRegistry) {
     response.systemsErrors.push({
-      message: 'There is an error in the National Registry',
+      message:
+        'There is an error between the stored data and the National Registry',
     });
   }
 
