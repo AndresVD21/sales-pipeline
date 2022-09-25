@@ -12,8 +12,8 @@ export const compareLeads = (
 ) => {
   for (const propery in leadFoundInRegistry) {
     if (
-      leadFoundInRegistry[propery as keyof Lead] !==
-      leadEntered[propery as keyof Lead]
+      leadFoundInRegistry[propery as keyof Registry] !==
+      leadEntered[propery as keyof Registry]
     ) {
       return false;
     }
