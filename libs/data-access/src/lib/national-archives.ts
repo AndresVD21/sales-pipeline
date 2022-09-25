@@ -15,7 +15,7 @@ export const getNationalArchive = (id: string) => {
           error: null,
         };
         resolve(response);
-      }, 500);
+      }, 3000);
     } else {
       console.log('[National Archive] - National archive not found');
 
@@ -29,7 +29,7 @@ export const getNationalArchive = (id: string) => {
         };
 
         resolve(response);
-      }, 500);
+      }, 3000);
     }
   });
 };

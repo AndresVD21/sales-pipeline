@@ -16,7 +16,7 @@ export const getRegistry = (id: string) => {
           error: null,
         };
         resolve(response);
-      }, 500);
+      }, 1500);
     } else {
       console.log('[National Registry] - National registry not found');
 
@@ -28,7 +28,7 @@ export const getRegistry = (id: string) => {
         };
 
         resolve(response);
-      }, 500);
+      }, 1500);
     }
   });
 };
