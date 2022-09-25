@@ -25,7 +25,7 @@ const Prospect: React.FC<ProspectProps> = ({
   };
 
   return !hasLeadSelected && !leadNotFound ? (
-    <div className={styles['lead__empty']}>Search for a lead!</div>
+    <p className={styles['lead__empty']}>Search for a lead!</p>
   ) : hasLeadSelected && lead && !leadNotFound ? (
     <div className={styles['lead']}>
       <p className={styles['lead__name']}>
@@ -42,7 +42,7 @@ const Prospect: React.FC<ProspectProps> = ({
     </div>
   ) : (
     <div className={styles['lead__not-found']}>
-      <p className="not-found__text">Lead not found.</p>
+      <p className="not-found__text">{`Sorry the lead you are trying to search is not in out database.`}</p>
     </div>
   );
 };

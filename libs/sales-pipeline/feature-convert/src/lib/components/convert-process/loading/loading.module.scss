@@ -1,3 +1,5 @@
+@use '../../../../../../../styles/src/lib/queries';
+
 .loading__container {
   padding: 1em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -10,6 +12,12 @@
   .loading__text {
     font-size: 1.2rem;
     font-weight: 800;
-    text-transform: uppercase;
+    // text-transform: uppercase;
+  }
+}
+
+@include queries.screen(lg) {
+  .loading__container {
+    text-align: center;
   }
 }

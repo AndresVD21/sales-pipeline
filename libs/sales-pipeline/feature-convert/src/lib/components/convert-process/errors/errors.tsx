@@ -15,6 +15,8 @@ export const Errors: React.FC<ErrorsProps> = ({
   return (
     <div className={styles['errors']}>
       <h2 className={styles['errors__text']}>Process Failed</h2>
+      <hr />
+      <br />
       {requestErrors.length > 0 &&
         requestErrors.map((reqError) => <ErrorItem error={reqError} />)}
       {systemsErrors.length > 0 &&

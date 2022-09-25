@@ -1,3 +1,5 @@
+@use '../../../../../../styles/src/lib/queries';
+
 .lead {
   padding: 1em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -6,10 +8,23 @@
   &__name {
     font-size: 1.2rem;
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: capitalize;
   }
   &__not-found,
   &__empty {
     padding: 1em;
+  }
+}
+
+@include queries.screen(lg) {
+  .lead {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &__not-found,
+    &__empty {
+      font-size: 1.2rem;
+    }
   }
 }

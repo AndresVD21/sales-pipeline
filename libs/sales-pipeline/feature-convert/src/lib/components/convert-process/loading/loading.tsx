@@ -13,7 +13,9 @@ export function Loading(props: LoadingProps) {
         spin={true}
         size="4x"
       />
-      <p className={styles['loading__text']}>The score is being processed</p>
+      <p className={styles['loading__text']}>
+        The score is being processed please wait!
+      </p>
     </div>
   );
 }

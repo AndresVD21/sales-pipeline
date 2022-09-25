@@ -1,4 +1,5 @@
 @use '../../../../../../../styles/src/lib/variables';
+@use '../../../../../../../styles/src/lib/queries';
 @use '../../../../../../../styles/src/lib/mixins/button.scss' as mixin-button;
 
 .score {
@@ -6,36 +7,31 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 5px;
 
-  .score__number__container {
-    width: 10%;
-    height: 10%;
-    border-radius: 50px;
-
-    .number {
-      font-size: 2rem;
-      display: inline-block;
-      border-radius: 60px;
-      padding: 0.2em;
-      background-color: variables.$greyish-blue;
-      color: variables.$white;
-    }
-  }
-
-  .score__number {
+  &__number {
     font-size: 2rem;
     display: inline-block;
     border-radius: 5px;
     padding: 0.2em;
-    background-color: variables.$greyish-blue;
+    background-color: variables.$teal;
     color: variables.$white;
   }
 
-  .score__result {
+  &__result {
     margin: 1em 0;
   }
 
   &__button {
     @include mixin-button.button(variables.$teal, variables.$white);
     width: 100%;
+  }
+}
+
+@include queries.screen(lg) {
+  .score {
+    text-align: center;
+
+    &__result {
+      font-size: 1.2rem;
+    }
   }
 }

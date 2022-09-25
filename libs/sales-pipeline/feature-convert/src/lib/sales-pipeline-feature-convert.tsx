@@ -114,7 +114,7 @@ export const SalesPipelineFeatureConvert: React.FC<
         />
       </div>
       <button
-        className={`${styles['process-convert__button']} ${styles['fill']}`}
+        className={`${styles['process-score__button']} ${styles['fill']}`}
         onClick={() => convertLead(searchId)}
         disabled={!lead}
       >
