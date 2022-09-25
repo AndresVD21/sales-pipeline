@@ -7,6 +7,8 @@ export const leads: Lead[] = [
     email: 'jane@company.co',
     firstName: 'Jane',
     lastName: 'Doe',
+    hasScore: false,
+    score: 0,
   },
   {
     id: '200',
@@ -14,6 +16,8 @@ export const leads: Lead[] = [
     email: 'jack@company.co',
     firstName: 'Jack',
     lastName: 'Doe',
+    hasScore: false,
+    score: 0,
   },
   {
     id: '300',
@@ -21,6 +25,8 @@ export const leads: Lead[] = [
     email: 'jim@company.co',
     firstName: 'Jim',
     lastName: 'Doe',
+    hasScore: false,
+    score: 0,
   },
   {
     id: '400',
@@ -28,6 +34,8 @@ export const leads: Lead[] = [
     email: 'jill@company.co',
     firstName: 'Jill',
     lastName: 'Doe',
+    hasScore: false,
+    score: 0,
   },
   {
     id: '500',
@@ -35,5 +43,7 @@ export const leads: Lead[] = [
     email: 'jill@company.co',
     firstName: 'Jill',
     lastName: 'Doe',
+    hasScore: false,
+    score: 0,
   },
 ];
