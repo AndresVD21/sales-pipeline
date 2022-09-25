@@ -12,7 +12,7 @@ import {
   getSatisfactoryScore,
 } from '@sales-pipeline/data-access';
 import { compareLeads } from '@sales-pipeline/utils';
-import { combineLatestWith, from, map } from 'rxjs';
+import { combineLatestWith, from, map, of } from 'rxjs';
 
 export const processLeadConvert = (leadId: string) => {
   const registry$ = from(getRegistry(leadId));
@@ -45,9 +45,9 @@ const processCombinedResults = (
     combinedScoreResponse.systemsErrors = [...scoreGenerated.systemsErrors];
   } else {
     combinedScoreResponse.requestErrors = [
-      registry.error,
-      archive.error,
-      lead.error,
+      ...(registry.error ? [registry.error] : []),
+      ...(archive.error ? [archive.error] : []),
+      ...(lead.error ? [lead.error] : []),
     ];
   }
   console.log(`[Process Combined Results] combined response:`);
@@ -79,4 +79,8 @@ const checkInformationMatch = (registryLead: Registry, localLead: Lead) => {
 
 const checkJudicialInformation = (archiveLead: NationalArchive) => {
   return archiveLead.hasJudicialRecord;
+};
+
+export const convertLeadIntoProspect = () => {
+  return of({ message: 'Lead converted successfully!' });
 };
