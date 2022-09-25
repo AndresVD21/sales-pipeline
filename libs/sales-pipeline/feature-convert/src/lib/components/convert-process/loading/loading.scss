@@ -1,0 +1,15 @@
+.loading__container {
+  padding: 1em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+
+  .loading__icon {
+    margin-bottom: 0.5em;
+  }
+
+  .loading__text {
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+}
