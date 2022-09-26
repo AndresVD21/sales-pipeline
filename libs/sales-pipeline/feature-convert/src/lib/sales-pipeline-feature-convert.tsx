@@ -1,12 +1,13 @@
 import { CombinedScoreResponse, Lead } from '@sales-pipeline/data';
 import { getLead } from '@sales-pipeline/data-access';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import styles from './sales-pipeline-feature-convert.module.scss';
 import { Subject, takeUntil } from 'rxjs';
 import Prospect from './components/prospects/prospects';
 import { processLeadConvert } from './services/convert.service';
 import ConvertProcess from './components/convert-process/convert-process';
+import { Nav } from '@sales-pipeline/shared';
 
 const scoreInitialState = {
   score: 0,
@@ -80,57 +81,75 @@ export const SalesPipelineFeatureConvert: React.FC<
         });
       });
   };
-
   return (
-    <main className={styles['container']}>
-      <h1 className={styles['container__title']}>
-        {/* <button onClick={goToHome}>Go To Home</button> */}
-        Start Process
-      </h1>
-      <hr />
-      <p className={styles['container__info']}>
-        Please enter the lead ID you want to turn into prospects and press the
-        search button to retrieve the information.
-      </p>
-      <section className={styles['search-lead']}>
-        <input
-          type="text"
-          className={styles['search-lead__input']}
-          value={searchId}
-          placeholder="Lead ID"
-          onChange={(e) => setSearchId(e.target.value)}
-        />
+    <>
+      <Nav>
+        <ul className={styles['nav__list']}>
+          <li className={styles['nav__list__item']}>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles['nav__list__item__link']} ${styles['link-active']}`
+                  : styles['nav__list__item__link']
+              }
+            >
+              Home
+            </NavLink>
+          </li>
+        </ul>
+      </Nav>
+
+      <main className={styles['container']}>
+        <h1 className={styles['container__title']}>
+          {/* <button onClick={goToHome}>Go To Home</button> */}
+          Start Process
+        </h1>
+        <hr />
+        <p className={styles['container__info']}>
+          Please enter the lead ID you want to turn into prospects and press the
+          search button to retrieve the information.
+        </p>
+        <section className={styles['search-lead']}>
+          <input
+            type="text"
+            className={styles['search-lead__input']}
+            value={searchId}
+            placeholder="Lead ID"
+            onChange={(e) => setSearchId(e.target.value)}
+          />
+          <button
+            className={`${styles['search-lead__button']} ${styles['fill']}`}
+            disabled={!searchId}
+            onClick={() => getLeadById(searchId)}
+          >
+            Search
+          </button>
+        </section>
+        <div className={styles['lead-selected']}>
+          <Prospect
+            lead={lead}
+            hasLeadSelected={hasLeadSelected()}
+            leadNotFound={leadNotFound}
+          />
+        </div>
         <button
-          className={`${styles['search-lead__button']} ${styles['fill']}`}
-          disabled={!searchId}
-          onClick={() => getLeadById(searchId)}
+          className={`${styles['process-score__button']} ${styles['fill']}`}
+          onClick={() => convertLead(searchId)}
+          disabled={!lead}
         >
-          Search
+          Process Score
         </button>
-      </section>
-      <div className={styles['lead-selected']}>
-        <Prospect
-          lead={lead}
-          hasLeadSelected={hasLeadSelected()}
-          leadNotFound={leadNotFound}
-        />
-      </div>
-      <button
-        className={`${styles['process-score__button']} ${styles['fill']}`}
-        onClick={() => convertLead(searchId)}
-        disabled={!lead}
-      >
-        Process Score
-      </button>
-      <section className={styles['convert-process-container']}>
-        <ConvertProcess
-          score={score}
-          scoreInProcess={scoreInProcess}
-          hasLeadSelected={hasLeadSelected()}
-          hasScore={hasScore()}
-        />
-      </section>
-    </main>
+        <section className={styles['convert-process-container']}>
+          <ConvertProcess
+            score={score}
+            scoreInProcess={scoreInProcess}
+            hasLeadSelected={hasLeadSelected()}
+            hasScore={hasScore()}
+          />
+        </section>
+      </main>
+    </>
   );
 };
 
