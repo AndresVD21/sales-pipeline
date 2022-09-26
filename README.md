@@ -1,4 +1,4 @@
-# Sales Pipepline - Frontend Challenge
+# Sales Pipeline - Frontend Challenge
 
 ## About
 
