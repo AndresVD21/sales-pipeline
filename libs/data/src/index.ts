@@ -1,4 +1,3 @@
-export * from './lib/data';
 export * from './lib/lead.model';
 export * from './lib/archive.model';
 export * from './lib/response.model';
