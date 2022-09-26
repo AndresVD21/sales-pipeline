@@ -40,8 +40,8 @@ export const leads: Lead[] = [
   {
     id: '500',
     birthdate: new Date(1990, 11, 15).toJSON(),
-    email: 'jill@company.co',
-    firstName: 'Jill',
+    email: 'juls@company.co',
+    firstName: 'Juls',
     lastName: 'Doe',
     hasScore: false,
     score: 0,
