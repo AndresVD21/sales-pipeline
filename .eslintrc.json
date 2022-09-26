@@ -21,12 +21,13 @@
                 "onlyDependOnLibsWithTags": [
                   "domain:data",
                   "domain:data-access",
-                  "domain:utils"
+                  "domain:utils",
+                  "domain:shared"
                 ]
               },
               {
                 "sourceTag": "domain:data-access",
-                "onlyDependOnLibsWithTags": ["domain:data"]
+                "onlyDependOnLibsWithTags": ["domain:data", "domain:utils"]
               },
               {
                 "sourceTag": "domain:utils",
