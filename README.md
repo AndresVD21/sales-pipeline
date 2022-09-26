@@ -1,94 +1,73 @@
+# Sales Pipepline - Frontend Challenge
 
+## About
 
-# SalesPipeline
+This project is the implementation of the pipeline that will allow the sales agents convert leads into prospects for the company.
+
+## Tech Stack 💻
+
+The technologies used for the project are the followings:
+
+- **React**: This choice of this library/framework is to test the learned skills with it, since it isn't my technology of expertice.
+
+- SCSS: To write more mantainable styles.
+- **Nx**: Is a build system that helps with the organization of the monorepo.
+
+---
+
+## Development 👨🏽‍💻
+
+To develop this project I've separated it in some pieces to delegate responsabilities.
+
+### Sales Pipeline
+
+This lib holds the features we use in this aplication those are:
+
+| Feature         | Functionality                                                                                                          |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Ferature Home   | This is just a module to present the application and welcome the user                                                  |
+| Feature Convert | This is the main module of the application where we can find the main functionality, let's get more information below. |
+
+#### **Feature Convert** _(libs/sales-pipeline/feature-convert)_
+
+Here we'll find to big components the **Prospect** where the data for the selected lead is displayed. And the **ConvertProcess** where we can see the errors got from the process of checking the lead data in the external services and the score obtained if everything is correct.
+
+Also here we have a service that allow the conection to the data access and generate the score based on the information of the lead and the external systems.
+
+### Data _(libs/data)_
+
+This lib is charge of storing the models of the classes and is used by the other libs.
+
+### Data Access _(libs/data-access)_
+
+Here we'll have methods to simulate the backend responses for both the outside environments **National Registry**, **National Archive** and the **Internal** data. Also here we have the mock data of every system.
+
+### Styles _(libs/styles)_
+
+On this lib we have the base/global styles for components that are shared in different components.
+
+### Shared _(libs/shared)_
+
+The shared components are created in this lib to have them accessible to the main features.
+
+---
+
+## Start the project
 
 This project was generated using [Nx](https://nx.dev).
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+<p><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="150"></p>
 
-🔎 **Smart, Fast and Extensible Build System**
+Run `npm install` to get dependencies.
 
-## Adding capabilities to your workspace
+Run `nx serve sales-pipeline` to start the local server.
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+---
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+## Improvement Areas
 
-Below are our core plugins:
-
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `nx g @nrwl/react:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@sales-pipeline/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `nx e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+| Area             |                                                                                                                                |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Error Handling   | Have a better way to send to the UI the errors related to external systems.                                                    |
+| Styles           | Better naming convention on styles.                                                                                            |
+| State Management | Implement state management to handle the load of the data and the states of success/error in the process of getting the score. |
