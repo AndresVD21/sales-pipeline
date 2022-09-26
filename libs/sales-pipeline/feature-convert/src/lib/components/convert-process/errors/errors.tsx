@@ -15,12 +15,15 @@ export const Errors: React.FC<ErrorsProps> = ({
   return (
     <div className={styles['errors']}>
       <h2 className={styles['errors__text']}>Process Failed</h2>
-      <hr />
-      <br />
+
       {requestErrors.length > 0 &&
-        requestErrors.map((reqError) => <ErrorItem error={reqError} />)}
+        requestErrors.map((reqError) => (
+          <ErrorItem error={reqError} key={reqError.message} />
+        ))}
       {systemsErrors.length > 0 &&
-        systemsErrors.map((sysError) => <ErrorItem error={sysError} />)}
+        systemsErrors.map((sysError) => (
+          <ErrorItem error={sysError} key={sysError.message} />
+        ))}
     </div>
   );
 };
