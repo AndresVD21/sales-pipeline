@@ -4,6 +4,29 @@
 @use '../../../../styles/src/lib/mixins/button.scss' as mixin-button;
 @use '../../../../styles/src/lib/mixins/input.scss' as mixin-input;
 
+.nav__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+
+  &__item {
+    font-weight: 100;
+    padding: 1em;
+
+    &__link {
+      text-decoration: none;
+      color: variables.$white;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+
+      &:active,
+      &:focus {
+        color: variables.$white;
+      }
+    }
+  }
+}
+
 @include mixin-container.container {
   align-self: flex-start;
   &__title {

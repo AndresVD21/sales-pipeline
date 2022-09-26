@@ -19,12 +19,13 @@
     }
 
     &__button {
-      @include mixin-button.button(variables.$teal, variables.$sky-blue);
+      @include mixin-button.button(variables.$teal, variables.$white);
     }
   }
 }
 
 @include mixin-container.container-lg {
+  grid-row-start: 2;
   &__title {
     font-size: 3rem;
     margin-bottom: 1em;
@@ -32,5 +33,9 @@
 
   .introduction {
     padding: 1em 0;
+
+    &__button {
+      @include mixin-button.button-lg;
+    }
   }
 }
