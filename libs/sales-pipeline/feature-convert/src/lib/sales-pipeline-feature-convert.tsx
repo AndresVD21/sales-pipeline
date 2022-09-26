@@ -65,17 +65,19 @@ export const SalesPipelineFeatureConvert: React.FC<
       .pipe(takeUntil($destroy))
       .subscribe((data) => {
         console.log('[Feature Convert] process lead convert finished', data);
-        setScore(data);
-        setLead(
-          lead
-            ? {
-                ...lead,
-                hasScore: true,
-                score: data.score,
-              }
-            : null
-        );
-        setScoreInProcess(false);
+        data.pipe(takeUntil($destroy)).subscribe((score) => {
+          setScore(score);
+          setLead(
+            lead
+              ? {
+                  ...lead,
+                  hasScore: true,
+                  score: score.score,
+                }
+              : null
+          );
+          setScoreInProcess(false);
+        });
       });
   };
 

@@ -36,23 +36,23 @@ const processCombinedResults = (
     systemsErrors: [],
   };
   if (registry.data && lead.data && archive.data) {
-    const scoreGenerated = generateScore(
-      registry.data,
-      archive.data,
-      lead.data
+    return generateScore(registry.data, archive.data, lead.data).pipe(
+      map((score) => {
+        combinedScoreResponse.score = score.score;
+        combinedScoreResponse.systemsErrors = [...score.systemsErrors];
+
+        console.log(`[Process Combined Results] combined response:`);
+        console.log(combinedScoreResponse);
+        return combinedScoreResponse;
+      })
     );
-    combinedScoreResponse.score = scoreGenerated.score;
-    combinedScoreResponse.systemsErrors = [...scoreGenerated.systemsErrors];
-  } else {
-    combinedScoreResponse.requestErrors = [
-      ...(registry.error ? [registry.error] : []),
-      ...(archive.error ? [archive.error] : []),
-      ...(lead.error ? [lead.error] : []),
-    ];
   }
-  console.log(`[Process Combined Results] combined response:`);
-  console.log(combinedScoreResponse);
-  return combinedScoreResponse;
+  combinedScoreResponse.requestErrors = [
+    ...(registry.error ? [registry.error] : []),
+    ...(archive.error ? [archive.error] : []),
+    ...(lead.error ? [lead.error] : []),
+  ];
+  return of(combinedScoreResponse);
 };
 
 const generateScore = (
@@ -60,25 +60,9 @@ const generateScore = (
   leadArchive: NationalArchive,
   localLead: Lead
 ) => {
-  const registryInformationMatch = checkInformationMatch(
-    leadRegistry,
-    localLead
-  );
-  const hasJudicialRecord = checkJudicialInformation(leadArchive);
-  const score = getSatisfactoryScore(
-    registryInformationMatch,
-    hasJudicialRecord
-  );
+  const score = getSatisfactoryScore(localLead, leadRegistry, leadArchive);
   console.log(`[Generate Score] Generated score`, score);
   return score;
-};
-
-const checkInformationMatch = (registryLead: Registry, localLead: Lead) => {
-  return compareLeads(registryLead, localLead);
-};
-
-const checkJudicialInformation = (archiveLead: NationalArchive) => {
-  return archiveLead.hasJudicialRecord;
 };
 
 export const convertLeadIntoProspect = () => {
