@@ -24,3 +24,16 @@ export const compareLeads = (
 export const getRandom = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
+
+export const getBirthdayString = (textBirthday: string) => {
+  const transformDate = new Date(textBirthday);
+  const day = `${transformDate?.getDate()}`;
+  const month =
+    transformDate?.toLocaleString('default', { month: 'short' }) || '';
+  const year = `${transformDate?.getFullYear()}`;
+  return `${day}/${month}/${year}`;
+};
+
+export const concatName = (firstName: string, lastName: string) => {
+  return [firstName, lastName].join(' ');
+};
