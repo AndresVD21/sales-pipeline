@@ -1,0 +1,10 @@
+.leads__list {
+  list-style: none;
+  padding: 1em 0;
+
+  &__item {
+    & + & {
+      margin-top: 1em;
+    }
+  }
+}

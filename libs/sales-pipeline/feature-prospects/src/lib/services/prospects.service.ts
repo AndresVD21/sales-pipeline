@@ -1,5 +1,5 @@
-import { getProspects } from '@sales-pipeline/data-access';
+import { getLeads } from '@sales-pipeline/data-access';
 
-export const getProspectsFromData = () => {
-  return getProspects();
+export const getLeadsFromData = () => {
+  return getLeads();
 };
