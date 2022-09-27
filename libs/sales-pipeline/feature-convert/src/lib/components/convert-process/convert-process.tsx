@@ -1,4 +1,4 @@
-import './convert-process.scss';
+import styles from './convert-process.module.scss';
 import { CombinedScoreResponse } from '@sales-pipeline/data';
 import Loading from './loading/loading';
 import Score from './score/score';
@@ -32,7 +32,9 @@ export const ConvertProcess: React.FC<ConvertProcessProps> = ({
     ) : hasScore ? (
       <Score score={score.score} />
     ) : (
-      <div>The selected lead does not have a previous score</div>
+      <div className={styles['no__previous__score']}>
+        The selected lead does not have a previous score
+      </div>
     )
   ) : null;
 };

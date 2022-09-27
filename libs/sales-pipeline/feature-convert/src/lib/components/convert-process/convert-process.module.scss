@@ -1,0 +1,7 @@
+@use '../../../../../../styles/src/lib/queries';
+
+@include queries.screen(lg) {
+  .no__previous__score {
+    font-size: 1.2rem;
+  }
+}
