@@ -1,0 +1,98 @@
+@use '../../../../styles/src/lib/typography';
+@use '../../../../styles/src/lib/variables';
+@use '../../../../styles/src/lib/queries';
+@use '../../../../styles/src/lib/mixins/container.scss' as mixin-container;
+@use '../../../../styles/src/lib/mixins/button.scss' as mixin-button;
+@use '../../../../styles/src/lib/mixins/input.scss' as mixin-input;
+
+@include mixin-button.button(variables.$teal, variables.$white);
+@include mixin-button.button-lg;
+
+.nav__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+
+  &__item {
+    font-weight: 100;
+    padding: 1em;
+
+    &__link {
+      text-decoration: none;
+      color: variables.$white;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+
+      &:active,
+      &:focus {
+        color: variables.$white;
+      }
+    }
+  }
+}
+
+@include mixin-container.container {
+  align-self: flex-start;
+  &__title {
+    text-transform: uppercase;
+  }
+
+  &__info {
+    line-height: 1.5;
+    margin: 1em 0;
+  }
+
+  .search-lead {
+    margin: 1em 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+
+    &__input {
+      @include mixin-input.input(variables.$teal, variables.$white);
+    }
+
+    &__button {
+      width: 100%;
+    }
+  }
+  .process-score__button {
+    margin: 1em 0;
+    width: 100%;
+  }
+}
+
+@include mixin-container.container-lg {
+  margin-top: 2em;
+
+  &__info {
+    font-size: 1.2rem;
+  }
+
+  .search-lead {
+    &__input,
+    &__button {
+      @include mixin-input.input-lg;
+    }
+  }
+
+  .process-score__button {
+    @include mixin-button.button-lg;
+  }
+}
+
+@include queries.screen(lg) {
+  .nav__list {
+    &__item {
+      &__link {
+        &:hover {
+          &::after {
+            content: '';
+            display: block;
+            border-bottom: 1px solid variables.$white;
+          }
+        }
+      }
+    }
+  }
+}

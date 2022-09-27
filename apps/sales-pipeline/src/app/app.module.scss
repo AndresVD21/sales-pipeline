@@ -1,0 +1,7 @@
+@use '../../../../libs/styles/src/lib/variables';
+
+.app-container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/sales-pipeline/feature-convert/src",
+  "projectType": "library",
+  "tags": ["domain:pipeline"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/sales-pipeline/feature-convert/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/sales-pipeline/feature-convert"],
+      "options": {
+        "jestConfig": "libs/sales-pipeline/feature-convert/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

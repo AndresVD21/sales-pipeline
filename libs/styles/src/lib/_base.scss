@@ -1,0 +1,23 @@
+@use './variables';
+@use './typography';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.app-container {
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  background-color: variables.$white;
+  color: variables.$rich-black;
+}

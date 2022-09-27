@@ -1,0 +1,23 @@
+@use '../../../../../../../styles/src/lib/variables';
+@use '../../../../../../../styles/src/lib/queries';
+
+.errors {
+  padding: 1em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+
+  &__text {
+    margin-bottom: 0.5em;
+    // text-align: center;
+  }
+}
+
+@include queries.screen(lg) {
+  .errors {
+    &__text {
+      font-size: 2rem;
+      margin-bottom: 0.5em;
+      font-weight: 100;
+    }
+  }
+}

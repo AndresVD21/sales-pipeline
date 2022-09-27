@@ -1,0 +1,25 @@
+@use '../queries';
+
+@mixin container {
+  .container {
+    padding: 1em 2em;
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    text-align: center;
+    margin: 0 auto;
+
+    @content;
+  }
+}
+
+@mixin container-lg {
+  @include queries.screen(lg) {
+    .container {
+      max-width: 70%;
+      text-align: left;
+
+      @content;
+    }
+  }
+}
