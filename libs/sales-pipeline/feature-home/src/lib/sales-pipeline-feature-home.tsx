@@ -28,7 +28,7 @@ export const SalesPipelineFeatureHome: React.FC<
             <Emoji emoji="👇🏾" label="hand pointing down" />
           </p>
           <button
-            className={`${styles['introduction__button']} ${styles['fill']}`}
+            className={`${styles['button']} ${styles['introduction__button']} ${styles['fill']}`}
             onClick={goToConvert}
           >
             Process Lead
