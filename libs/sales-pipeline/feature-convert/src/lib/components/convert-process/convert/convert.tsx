@@ -11,6 +11,13 @@ export const Convert = (props: ConvertProps) => {
 
   const [message, setMessage] = useState('');
 
+  // useEffect(() => {
+  //   return () => {
+  //     $destroy.next(true);
+  //     $destroy.unsubscribe();
+  //   };
+  // }, []);
+
   const convertLead = () => {
     convertLeadIntoProspect()
       .pipe(takeUntil($destroy))
