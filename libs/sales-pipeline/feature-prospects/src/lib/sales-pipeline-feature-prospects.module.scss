@@ -1,0 +1,5 @@
+@use '../../../../styles/src/lib/mixins/container.scss' as mixin-container;
+
+@include mixin-container.container;
+
+@include mixin-container.container-lg;
