@@ -73,3 +73,4 @@ Run `nx serve sales-pipeline` to start the local server.
 | State Management          | Implement state management to handle the load of the data and the states of success/error in the process of getting the score. |
 | Parallel Process Handling | Successfully waited task to end, but the logic between parts of the application could be better organized.                     |
 | Testing                   | Still need to improve in testing react components. Increase code coverage to make sure every component is redering properly.   |
+| Observables handling | I have thought in the way to handle the unsubscription of observables but in react that behavior is different so I need to learn more about that. |
