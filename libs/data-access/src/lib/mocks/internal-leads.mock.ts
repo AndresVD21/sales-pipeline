@@ -9,6 +9,7 @@ export const leads: Lead[] = [
     lastName: 'Doe',
     hasScore: false,
     score: 0,
+    isProspect: false,
   },
   {
     id: '200',
@@ -18,6 +19,7 @@ export const leads: Lead[] = [
     lastName: 'Doe',
     hasScore: false,
     score: 0,
+    isProspect: false,
   },
   {
     id: '300',
@@ -27,6 +29,7 @@ export const leads: Lead[] = [
     lastName: 'Doe',
     hasScore: false,
     score: 0,
+    isProspect: false,
   },
   {
     id: '400',
@@ -36,6 +39,7 @@ export const leads: Lead[] = [
     lastName: 'Doe',
     hasScore: false,
     score: 0,
+    isProspect: false,
   },
   {
     id: '500',
@@ -45,5 +49,26 @@ export const leads: Lead[] = [
     lastName: 'Doe',
     hasScore: false,
     score: 0,
+    isProspect: false,
+  },
+  {
+    id: '600',
+    birthdate: new Date(1990, 11, 15).toJSON(),
+    email: 'jimmy@company.co',
+    firstName: 'Jimmy',
+    lastName: 'Doe',
+    hasScore: true,
+    score: 76,
+    isProspect: true,
+  },
+  {
+    id: '700',
+    birthdate: new Date(1990, 11, 15).toJSON(),
+    email: 'jude@company.co',
+    firstName: 'Jude',
+    lastName: 'Doe',
+    hasScore: true,
+    score: 65,
+    isProspect: true,
   },
 ];
