@@ -22,6 +22,14 @@ export const getLead = (id: string) => {
   return of(response);
 };
 
+export const getProspects = () => {
+  const response: Response<Lead[]> = {
+    data: leads.filter((lead) => lead.isProspect),
+    error: null,
+  };
+  return of(response);
+};
+
 export const getSatisfactoryScore = (
   lead: Lead,
   registry: Registry,

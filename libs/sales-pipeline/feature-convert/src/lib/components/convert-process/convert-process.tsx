@@ -7,9 +7,10 @@ import Errors from './errors/errors';
 /* eslint-disable-next-line */
 export interface ConvertProcessProps {
   score: CombinedScoreResponse;
-  scoreInProcess: boolean;
-  hasLeadSelected: boolean;
-  hasScore: boolean;
+  scoreInProcess?: boolean;
+  hasLeadSelected?: boolean;
+  hasScore?: boolean;
+  isProspect: boolean;
 }
 
 export const ConvertProcess: React.FC<ConvertProcessProps> = ({
@@ -17,9 +18,10 @@ export const ConvertProcess: React.FC<ConvertProcessProps> = ({
   scoreInProcess,
   hasLeadSelected,
   hasScore,
+  isProspect,
 }) => {
   const hasErrors = () => {
-    return score.requestErrors.length > 0 || score.systemsErrors.length > 0;
+    return score?.requestErrors.length > 0 || score?.systemsErrors.length > 0;
   };
   return hasLeadSelected ? (
     scoreInProcess ? (
@@ -30,7 +32,7 @@ export const ConvertProcess: React.FC<ConvertProcessProps> = ({
         systemsErrors={score.systemsErrors}
       />
     ) : hasScore ? (
-      <Score score={score.score} />
+      <Score score={score.score} isProspect={isProspect} />
     ) : (
       <div className={styles['no__previous__score']}>
         The selected lead does not have a previous score

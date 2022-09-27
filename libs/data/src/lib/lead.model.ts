@@ -6,4 +6,5 @@ export class Lead {
   birthdate: string;
   hasScore: boolean;
   score: number;
+  isProspect: boolean;
 }

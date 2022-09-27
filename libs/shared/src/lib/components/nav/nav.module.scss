@@ -11,10 +11,57 @@
   &__logo {
     width: 250px;
   }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &__item {
+      font-weight: 100;
+      padding: 1em;
+
+      &__link {
+        text-decoration: none;
+        color: variables.$white;
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+
+        &:active,
+        &:focus {
+          color: variables.$white;
+        }
+      }
+    }
+  }
 }
 
 @include queries.screen(lg) {
   .nav {
     flex-direction: row;
+
+    &__list {
+      flex-direction: row;
+      &__item {
+        &__link {
+          &:hover {
+            &::after {
+              content: '';
+              display: block;
+              border-bottom: 1px solid variables.$white;
+            }
+          }
+
+          &.link-active {
+            &::after {
+              content: '';
+              display: block;
+              border-bottom: 1px solid variables.$white;
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -4,16 +4,17 @@ import styles from './score.module.scss';
 /* eslint-disable-next-line */
 export interface ScoreProps {
   score: number;
+  isProspect: boolean;
 }
 
-export const Score: React.FC<ScoreProps> = ({ score }) => {
+export const Score: React.FC<ScoreProps> = ({ score, isProspect }) => {
   const isAbleToConvert = () => {
     return score > 60;
   };
   return (
     <div className={styles['score']}>
       <p className={styles['score__number']}>{score}</p>
-      {isAbleToConvert() ? (
+      {isProspect ? null : isAbleToConvert() ? (
         <p className={styles['score__result']}>
           The score obtained allows to convert the lead into prospect
           <Space />

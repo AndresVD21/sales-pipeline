@@ -72,3 +72,4 @@ Run `nx serve sales-pipeline` to start the local server.
 | Styles                    | Better naming convention on styles.                                                                                            |
 | State Management          | Implement state management to handle the load of the data and the states of success/error in the process of getting the score. |
 | Parallel Process Handling | Successfully waited task to end, but the logic between parts of the application could be better organized.                     |
+| Testing                   | Still need to improve in testing react components. Increase code coverage to make sure every component is redering properly.   |

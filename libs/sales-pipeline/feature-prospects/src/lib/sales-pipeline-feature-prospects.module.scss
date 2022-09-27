@@ -1,0 +1,37 @@
+@use '../../../../styles/src/lib/mixins/container.scss' as mixin-container;
+
+@include mixin-container.container;
+
+@include mixin-container.container-lg;
+
+.prospects__list {
+  list-style: none;
+  padding: 1em 0;
+
+  &__item {
+    & + & {
+      margin-top: 1em;
+    }
+    .prospect {
+      padding: 1em;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      border-radius: 5px;
+
+      &__name {
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: capitalize;
+      }
+      &__not-found,
+      &__empty {
+        padding: 1em;
+      }
+
+      &__already__prospect {
+        font-size: 0.8rem;
+        font-style: italic;
+        margin: 0.5em 0;
+      }
+    }
+  }
+}

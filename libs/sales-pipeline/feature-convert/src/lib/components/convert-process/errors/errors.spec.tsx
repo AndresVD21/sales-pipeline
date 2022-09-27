@@ -4,7 +4,9 @@ import Errors from './errors';
 
 describe('Errors', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Errors />);
+    const { baseElement } = render(
+      <Errors requestErrors={[]} systemsErrors={[]} />
+    );
     expect(baseElement).toBeTruthy();
   });
 });

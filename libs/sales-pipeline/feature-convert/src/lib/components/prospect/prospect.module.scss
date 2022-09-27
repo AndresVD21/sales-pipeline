@@ -14,6 +14,12 @@
   &__empty {
     padding: 1em;
   }
+
+  &__already__prospect {
+    font-size: 0.8rem;
+    font-style: italic;
+    margin: 0.5em 0;
+  }
 }
 
 @include queries.screen(lg) {
