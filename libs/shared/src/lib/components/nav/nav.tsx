@@ -46,7 +46,7 @@ export const Nav: React.FC<NavProps> = ({ children }) => {
                 : styles['nav__list__item__link']
             }
           >
-            Prospects
+            Leads/Prospects
           </NavLink>
         </li>
       </ul>
