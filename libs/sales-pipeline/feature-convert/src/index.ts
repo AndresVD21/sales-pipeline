@@ -1,3 +1,4 @@
+export * from './lib/components/convert-process/convert/convert';
 export * from './lib/components/convert-process/errors/error-item/error-item';
 export * from './lib/components/convert-process/errors/errors';
 export * from './lib/components/convert-process/score/score';
