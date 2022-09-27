@@ -33,9 +33,6 @@
 
 @include mixin-container.container {
   align-self: flex-start;
-  &__title {
-    text-transform: uppercase;
-  }
 
   &__info {
     line-height: 1.5;

@@ -3,7 +3,7 @@ import { getLead } from '@sales-pipeline/data-access';
 import { useEffect, useState } from 'react';
 import styles from './sales-pipeline-feature-convert.module.scss';
 import { Subject, takeUntil } from 'rxjs';
-import Prospect from './components/prospects/prospects';
+import Prospect from './components/prospect/prospect';
 import { processLeadConvert } from './services/convert.service';
 import ConvertProcess from './components/convert-process/convert-process';
 import Convert from './components/convert-process/convert/convert';
@@ -46,6 +46,10 @@ export const SalesPipelineFeatureConvert: React.FC<
     return lead?.score ? lead.score > 60 : false;
   };
 
+  const isPropspect = () => {
+    return lead ? lead.isProspect : false;
+  };
+
   const getLeadById = (id: string) => {
     setScore(scoreInitialState);
     setScoreInProcess(false);
@@ -54,6 +58,9 @@ export const SalesPipelineFeatureConvert: React.FC<
       .subscribe(({ data }) => {
         console.log('[Feature Convert] Lead data recived', data);
         setLead(data ? data : null);
+        setScore(
+          data ? { ...scoreInitialState, score: data.score } : scoreInitialState
+        );
         setLeadNotFound(data ? false : true);
       });
   };
@@ -123,8 +130,9 @@ export const SalesPipelineFeatureConvert: React.FC<
           scoreInProcess={scoreInProcess}
           hasLeadSelected={hasLeadSelected()}
           hasScore={hasScore()}
+          isProspect={isPropspect()}
         />
-        {isAbleToConvert() && <Convert />}
+        {isAbleToConvert() && !isPropspect() && <Convert />}
       </section>
     </main>
   );
