@@ -11,7 +11,6 @@ import {
   getRegistry,
   getSatisfactoryScore,
 } from '@sales-pipeline/data-access';
-import { compareLeads } from '@sales-pipeline/utils';
 import { combineLatestWith, from, map, of } from 'rxjs';
 
 export const processLeadConvert = (leadId: string) => {
@@ -61,7 +60,6 @@ const generateScore = (
   localLead: Lead
 ) => {
   const score = getSatisfactoryScore(localLead, leadRegistry, leadArchive);
-  console.log(`[Generate Score] Generated score`, score);
   return score;
 };
 
