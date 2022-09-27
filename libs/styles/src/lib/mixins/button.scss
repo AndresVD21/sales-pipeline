@@ -2,42 +2,47 @@
 @use '../variables';
 
 @mixin button($color-primary, $color-secondary) {
-  border: 2px solid $color-primary;
-  color: $color-primary;
-  padding: 1em 1.5em;
-  text-transform: capitalize;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: 100;
-  background-color: transparent;
-
-  &.fill {
-    background-color: $color-primary;
-    color: $color-secondary;
-  }
-
-  &:hover {
-    border-color: $color-primary;
-    background-color: $color-secondary;
+  .button {
+    border: 2px solid $color-primary;
     color: $color-primary;
-    font-weight: 400;
+    padding: 1em 1.5em;
+    text-transform: capitalize;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 100;
+    background-color: transparent;
+    letter-spacing: 2px;
+
+    &.fill {
+      background-color: $color-primary;
+      color: $color-secondary;
+    }
+
+    &:hover {
+      border-color: $color-primary;
+      background-color: $color-secondary;
+      color: $color-primary;
+      font-weight: 400;
+
+      &:disabled {
+        color: $color-secondary;
+        font-weight: 100;
+      }
+    }
 
     &:disabled {
-      color: $color-secondary;
-      font-weight: 100;
+      background-color: variables.$light-grey;
+      border-color: variables.$light-grey;
+      cursor: not-allowed;
     }
-  }
-
-  &:disabled {
-    background-color: variables.$light-grey;
-    border-color: variables.$light-grey;
-    cursor: not-allowed;
   }
 }
 
 @mixin button-lg {
   @include queries.screen(lg) {
-    font-size: 1.2rem;
-    padding: 0.5em 1em;
+    .button {
+      font-size: 1.2rem;
+      padding: 0.5em 1em;
+    }
   }
 }

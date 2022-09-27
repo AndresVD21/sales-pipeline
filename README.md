@@ -66,8 +66,9 @@ Run `nx serve sales-pipeline` to start the local server.
 
 ## Improvement Areas
 
-| Area             |                                                                                                                                |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Error Handling   | Have a better way to send to the UI the errors related to external systems.                                                    |
-| Styles           | Better naming convention on styles.                                                                                            |
-| State Management | Implement state management to handle the load of the data and the states of success/error in the process of getting the score. |
+| Area                      |                                                                                                                                |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Error Handling            | Have a better way to send to the UI the errors related to external systems.                                                    |
+| Styles                    | Better naming convention on styles.                                                                                            |
+| State Management          | Implement state management to handle the load of the data and the states of success/error in the process of getting the score. |
+| Parallel Process Handling | Successfully waited task to end, but the logic between parts of the application could be better organized.                     |

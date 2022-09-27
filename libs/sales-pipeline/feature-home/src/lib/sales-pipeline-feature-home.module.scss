@@ -3,6 +3,9 @@
 @use '../../../../styles/src/lib/mixins/container.scss' as mixin-container;
 @use '../../../../styles/src/lib/mixins/button.scss' as mixin-button;
 
+@include mixin-button.button(variables.$teal, variables.$white);
+@include mixin-button.button-lg;
+
 @include mixin-container.container {
   align-self: center;
   &__title {
@@ -17,10 +20,6 @@
       font-size: 1.5em;
       margin-bottom: 1em;
     }
-
-    &__button {
-      @include mixin-button.button(variables.$teal, variables.$white);
-    }
   }
 }
 
@@ -33,9 +32,5 @@
 
   .introduction {
     padding: 1em 0;
-
-    &__button {
-      @include mixin-button.button-lg;
-    }
   }
 }

@@ -13,7 +13,7 @@ describe('Get National Archive', () => {
     const registryFound = getNationalArchive('101');
     registryFound.then((data) => {
       expect(data.data).toBeNull();
-      expect(data.error).toBe({
+      expect(data.error).toEqual({
         message: `There is no a national archive with the id 101`,
       });
     });

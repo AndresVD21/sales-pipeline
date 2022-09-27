@@ -1,0 +1,26 @@
+@use '../../../../../../../styles/src/lib/mixins/button.scss' as mixin-button;
+@use '../../../../../../../styles/src/lib/variables';
+@use '../../../../../../../styles/src/lib/queries';
+
+@include mixin-button.button(variables.$teal, variables.$white);
+@include mixin-button.button-lg;
+
+.container {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .convert__button {
+    margin-bottom: 1em;
+    width: 50%;
+  }
+}
+
+@include queries.screen(lg) {
+  .container {
+    .convert__message {
+      font-size: 1.2rem;
+    }
+  }
+}
