@@ -8,6 +8,7 @@ import Prospect from './components/prospects/prospects';
 import { processLeadConvert } from './services/convert.service';
 import ConvertProcess from './components/convert-process/convert-process';
 import { Nav } from '@sales-pipeline/shared';
+import Convert from './components/convert-process/convert/convert';
 
 const scoreInitialState = {
   score: 0,
@@ -48,6 +49,10 @@ export const SalesPipelineFeatureConvert: React.FC<
     return lead ? lead.hasScore : false;
   };
 
+  const isAbleToConvert = () => {
+    return lead?.score ? lead.score > 60 : false;
+  };
+
   const getLeadById = (id: string) => {
     setScore(scoreInitialState);
     setScoreInProcess(false);
@@ -65,8 +70,8 @@ export const SalesPipelineFeatureConvert: React.FC<
     processLeadConvert(id)
       .pipe(takeUntil($destroy))
       .subscribe((data) => {
-        console.log('[Feature Convert] process lead convert finished', data);
         data.pipe(takeUntil($destroy)).subscribe((score) => {
+          console.log('[Feature Convert] process lead convert finished', score);
           setScore(score);
           setLead(
             lead
@@ -119,22 +124,22 @@ export const SalesPipelineFeatureConvert: React.FC<
             onChange={(e) => setSearchId(e.target.value)}
           />
           <button
-            className={`${styles['search-lead__button']} ${styles['fill']}`}
+            className={`${styles['button']} ${styles['search-lead__button']} ${styles['fill']}`}
             disabled={!searchId}
             onClick={() => getLeadById(searchId)}
           >
             Search
           </button>
         </section>
-        <div className={styles['lead-selected']}>
+        <section className={styles['lead-selected']}>
           <Prospect
             lead={lead}
             hasLeadSelected={hasLeadSelected()}
             leadNotFound={leadNotFound}
           />
-        </div>
+        </section>
         <button
-          className={`${styles['process-score__button']} ${styles['fill']}`}
+          className={`${styles['button']} ${styles['process-score__button']} ${styles['fill']}`}
           onClick={() => convertLead(searchId)}
           disabled={!lead}
         >
@@ -147,6 +152,7 @@ export const SalesPipelineFeatureConvert: React.FC<
             hasLeadSelected={hasLeadSelected()}
             hasScore={hasScore()}
           />
+          {isAbleToConvert() && <Convert />}
         </section>
       </main>
     </>
