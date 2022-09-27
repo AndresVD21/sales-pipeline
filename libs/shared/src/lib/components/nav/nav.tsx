@@ -15,6 +15,7 @@ export const Nav: React.FC<NavProps> = ({ children }) => {
         <li className={styles['nav__list__item']}>
           <NavLink
             to="/"
+            end
             className={({ isActive }) =>
               isActive
                 ? `${styles['nav__list__item__link']} ${styles['link-active']}`
