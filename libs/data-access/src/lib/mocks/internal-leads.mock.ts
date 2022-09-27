@@ -33,7 +33,7 @@ export const leads: Lead[] = [
   },
   {
     id: '400',
-    birthdate: new Date(1990, 11, 15).toJSON(),
+    birthdate: new Date(1978, 8, 15).toJSON(),
     email: 'jill@company.co',
     firstName: 'Jill',
     lastName: 'Doe',
@@ -43,7 +43,7 @@ export const leads: Lead[] = [
   },
   {
     id: '500',
-    birthdate: new Date(1990, 11, 15).toJSON(),
+    birthdate: new Date(1991, 3, 7).toJSON(),
     email: 'juls@company.co',
     firstName: 'Juls',
     lastName: 'Doe',
@@ -53,7 +53,7 @@ export const leads: Lead[] = [
   },
   {
     id: '600',
-    birthdate: new Date(1990, 11, 15).toJSON(),
+    birthdate: new Date(1980, 7, 25).toJSON(),
     email: 'jimmy@company.co',
     firstName: 'Jimmy',
     lastName: 'Doe',
@@ -63,7 +63,7 @@ export const leads: Lead[] = [
   },
   {
     id: '700',
-    birthdate: new Date(1990, 11, 15).toJSON(),
+    birthdate: new Date(1987, 1, 10).toJSON(),
     email: 'jude@company.co',
     firstName: 'Jude',
     lastName: 'Doe',
