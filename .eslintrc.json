@@ -19,6 +19,7 @@
               {
                 "sourceTag": "domain:pipeline",
                 "onlyDependOnLibsWithTags": [
+                  "domain:pipeline",
                   "domain:data",
                   "domain:data-access",
                   "domain:utils",
