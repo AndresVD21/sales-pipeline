@@ -4,7 +4,7 @@ import Score from './score';
 
 describe('Score', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Score />);
+    const { baseElement } = render(<Score score={10} isProspect={false} />);
     expect(baseElement).toBeTruthy();
   });
 });
