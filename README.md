@@ -60,7 +60,7 @@ This project was generated using [Nx](https://nx.dev).
 
 Run `npm install` to get dependencies.
 
-Run `nx serve sales-pipeline` to start the local server.
+Run `npx nx serve sales-pipeline` to start the local server.
 
 ---
 
