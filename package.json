@@ -47,6 +47,8 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@loadable/component": "^5.15.2",
+    "@types/loadable__component": "^5.13.4",
     "core-js": "^3.6.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -56,4 +58,3 @@
     "tslib": "^2.3.0"
   }
 }
-

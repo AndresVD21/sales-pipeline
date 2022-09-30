@@ -1,9 +1,22 @@
 import styles from './app.module.scss';
 import { Route, Routes } from 'react-router-dom';
-import { SalesPipelineFeatureConvert } from '@sales-pipeline/sales-pipeline/feature-convert';
-import { SalesPipelineFeatureHome } from '@sales-pipeline/sales-pipeline/feature-home';
-import { SalesPipelineFeatureProspects } from '@sales-pipeline/sales-pipeline/feature-prospects';
 import { Nav } from '@sales-pipeline/shared';
+import loadable from '@loadable/component';
+
+const SalesPipelineFeatureHome = loadable(
+  () => import('@sales-pipeline/sales-pipeline/feature-home'),
+  { resolveComponent: (components) => components.SalesPipelineFeatureHome }
+);
+
+const SalesPipelineFeatureConvert = loadable(
+  () => import('@sales-pipeline/sales-pipeline/feature-convert'),
+  { resolveComponent: (components) => components.SalesPipelineFeatureConvert }
+);
+
+const SalesPipelineFeatureProspects = loadable(
+  () => import('@sales-pipeline/sales-pipeline/feature-prospects'),
+  { resolveComponent: (components) => components.SalesPipelineFeatureProspects }
+);
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function App() {
